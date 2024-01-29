@@ -98,6 +98,7 @@ public enum Profile {
     ANTI_BODY_PANEL(Observation.class, "https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/sars-cov-2-ab-pnl-ser-pl-ia"),
     VIROLOGISCHER_BEFUND(Observation.class, "http://highmed.org/StructureDefinition/ic/VirologischerBefund"),
     SEX_AT_BIRTH(Observation.class, "https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/sex-assigned-at-birth"),
+    IPS_BODY_HEIGHT(Observation.class, "http://hl7.org/fhir/StructureDefinition/vitalsigns"),
 
     // Patient
     PATIENT(Patient.class, "https://www.netzwerk-universitaetsmedizin.de/fhir/StructureDefinition/Patient"),

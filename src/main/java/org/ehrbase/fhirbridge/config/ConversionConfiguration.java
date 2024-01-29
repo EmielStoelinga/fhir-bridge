@@ -39,6 +39,7 @@ import org.ehrbase.fhirbridge.ehr.converter.specific.heartrate.HerzfrequenzCompo
 import org.ehrbase.fhirbridge.ehr.converter.specific.hipdocument.DocumentReferenceToHipDocumentConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.historyoftravel.HistoryOfTravelCompositionConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.impfstatus.ImpfstatusCompositionConverter;
+import org.ehrbase.fhirbridge.ehr.converter.specific.ipsbodyweight.IPSBodyWeightCompositionConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.knownexposure.SarsCov2KnownExposureCompositionConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.medication.GECCOMedikationCompositionConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.observationlab.ObservationLabCompositionConverter;
@@ -175,6 +176,7 @@ public class ConversionConfiguration {
         conversionService.registerConverter(Profile.OXYGEN_SATURATION, new PulseOximetryCompositionConverter());
         conversionService.registerConverter(Profile.VIROLOGISCHER_BEFUND, new VirologischerBefundCompositionConverter());
         conversionService.registerConverter(Profile.SEX_AT_BIRTH, new SexAtBirthConverter());
+        conversionService.registerConverter(Profile.IPS_BODY_HEIGHT, new IPSBodyWeightCompositionConverter());
 
     }
 
