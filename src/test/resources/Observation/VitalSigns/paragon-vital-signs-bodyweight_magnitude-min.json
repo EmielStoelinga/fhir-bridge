@@ -23,13 +23,6 @@
        },
        "code_string": "en"
     },
-    "territory": {
-       "terminology_id": {
-          "_type": "TERMINOLOGY_ID",
-          "value": "ISO_3166-1"
-       },
-       "code_string": "UY"
-    },
     "category": {
        "value": "event",
        "defining_code": {
@@ -46,15 +39,12 @@
           "id": {
              "_type": "HIER_OBJECT_ID",
              "value": "01828e15-e540-4d67-9258-e68507d89751"
-          },
-          "namespace": "DEMOGRAPHIC",
-          "type": "PERSON"
-       },
-       "name": "Dr. Yamamoto"
+          }
+       }
     },
     "context": {
        "start_time": {
-          "value": "2024-01-29T12:23:55.983Z"
+          "value": "2024-01-26T00:00:00+00:00"
        },
        "setting": {
           "value": "primary medical care",
@@ -139,7 +129,7 @@
                    },
                    "archetype_node_id": "at0002",
                    "origin": {
-                      "value": "2024-01-29T12:23:56.001Z"
+                      "value": "2024-01-26T00:00:00+00:00"
                    },
                    "events": [
                       {
@@ -150,7 +140,7 @@
                          },
                          "archetype_node_id": "at0003",
                          "time": {
-                            "value": "2024-01-29T12:23:56.002Z"
+                            "value": "2024-01-26T00:00:00+00:00"
                          },
                          "data": {
                             "_type": "ITEM_TREE",

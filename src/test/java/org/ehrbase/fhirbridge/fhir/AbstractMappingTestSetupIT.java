@@ -32,6 +32,7 @@ public abstract class AbstractMappingTestSetupIT extends AbstractSetupIT {
         Flattener cut = new Flattener(resourceTemplateProvider);
         CompositionEntity paragonComposition = cut.flatten(composition, mappedComposition.getClass());
         Diff diff = javers.compare(paragonComposition, mappedComposition);
+        System.out.println(diff.prettyPrint());
         diff.getChanges().forEach(System.out::println);
         return diff;
     }
