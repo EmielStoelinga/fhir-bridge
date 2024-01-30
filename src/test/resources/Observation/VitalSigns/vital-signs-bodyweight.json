@@ -32,11 +32,16 @@
             "value": "{{patientId}}"
         }
     },
-    "effectiveDateTime": "2024-01-26T00:00:00+00:00",
+    "effectiveDateTime": "2024-01-26",
     "valueQuantity": {
         "value": 80,
         "unit": "kg",
         "system": "http://unitsofmeasure.org",
         "code": "kg"
+    },
+    "language": "en",
+    "performer": {
+        "reference": "Practitioner/01828e15-e540-4d67-9258-e68507d89751",
+        "display": "Dr. Yamamoto"
     }
 }
