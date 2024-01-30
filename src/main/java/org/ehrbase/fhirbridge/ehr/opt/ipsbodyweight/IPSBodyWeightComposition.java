@@ -1,4 +1,4 @@
-package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition;
+package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight;
 
 import com.nedap.archie.rm.archetyped.FeederAudit;
 import com.nedap.archie.rm.datastructures.Cluster;
@@ -9,7 +9,7 @@ import java.lang.String;
 import java.time.temporal.TemporalAccessor;
 import java.util.List;
 import javax.annotation.processing.Generated;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightObservation;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightObservation;
 import org.ehrbase.client.annotations.Archetype;
 import org.ehrbase.client.annotations.Entity;
 import org.ehrbase.client.annotations.Id;
@@ -30,7 +30,7 @@ import org.ehrbase.client.openehrclient.VersionUid;
     comments = "https://github.com/ehrbase/openEHR_SDK Version: 2.6.0"
 )
 @Template("International Patient Summary - only body weight")
-public class InternationalPatientSummaryOnlyBodyWeightComposition implements CompositionEntity {
+public class IPSBodyWeightComposition implements CompositionEntity {
   /**
    * Path: International Patient Summary/category
    */

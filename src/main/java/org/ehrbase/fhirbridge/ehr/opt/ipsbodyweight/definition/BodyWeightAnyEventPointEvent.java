@@ -1,29 +1,25 @@
-package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition;
+package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition;
 
 import com.nedap.archie.rm.archetyped.FeederAudit;
 import com.nedap.archie.rm.datastructures.ItemTree;
 import java.lang.Double;
-import java.lang.Long;
 import java.lang.String;
 import java.time.temporal.TemporalAccessor;
-import java.time.temporal.TemporalAmount;
 import javax.annotation.processing.Generated;
 import org.ehrbase.client.annotations.Entity;
 import org.ehrbase.client.annotations.Path;
 import org.ehrbase.client.annotations.OptionFor;
 import org.ehrbase.client.classgenerator.shareddefinition.NullFlavour;
-import org.ehrbase.client.classgenerator.shareddefinition.MathFunction;
-import org.ehrbase.client.classgenerator.interfaces.IntervalEventEntity;
-
+import org.ehrbase.client.classgenerator.interfaces.PointEventEntity;
 
 @Entity
 @Generated(
     value = "org.ehrbase.openehr.sdk.generator.ClassGenerator",
-    date = "2024-01-26T15:43:54.025140900+01:00",
+    date = "2024-01-26T15:43:54.029141+01:00",
     comments = "https://github.com/ehrbase/openEHR_SDK Version: 2.6.0"
 )
-@OptionFor("INTERVAL_EVENT")
-public class BodyWeightAnyEventIntervalEvent implements IntervalEventEntity, BodyWeightAnyEventChoice {
+@OptionFor("POINT_EVENT")
+public class BodyWeightAnyEventPointEvent implements PointEventEntity, BodyWeightAnyEventChoice {
   /**
    * Path: International Patient Summary/Vital Signs/Body weight/Any event/Weight
    * Description: The weight of the individual.
@@ -62,24 +58,6 @@ public class BodyWeightAnyEventIntervalEvent implements IntervalEventEntity, Bod
    */
   @Path("/time|value")
   private TemporalAccessor timeValue;
-
-  /**
-   * Path: International Patient Summary/Vital Signs/Body weight/Any event/width
-   */
-  @Path("/width|value")
-  private TemporalAmount widthValue;
-
-  /**
-   * Path: International Patient Summary/Vital Signs/Body weight/Any event/math_function
-   */
-  @Path("/math_function|defining_code")
-  private MathFunction mathFunctionDefiningCode;
-
-  /**
-   * Path: International Patient Summary/Vital Signs/Body weight/Any event/sample_count
-   */
-  @Path("/sample_count")
-  private Long sampleCount;
 
   public void setWeightMagnitude(Double weightMagnitude) {
      this.weightMagnitude = weightMagnitude;
@@ -127,29 +105,5 @@ public class BodyWeightAnyEventIntervalEvent implements IntervalEventEntity, Bod
 
   public TemporalAccessor getTimeValue() {
      return this.timeValue ;
-  }
-
-  public void setWidthValue(TemporalAmount widthValue) {
-     this.widthValue = widthValue;
-  }
-
-  public TemporalAmount getWidthValue() {
-     return this.widthValue ;
-  }
-
-  public void setMathFunctionDefiningCode(MathFunction mathFunctionDefiningCode) {
-     this.mathFunctionDefiningCode = mathFunctionDefiningCode;
-  }
-
-  public MathFunction getMathFunctionDefiningCode() {
-     return this.mathFunctionDefiningCode ;
-  }
-
-  public void setSampleCount(Long sampleCount) {
-     this.sampleCount = sampleCount;
-  }
-
-  public Long getSampleCount() {
-     return this.sampleCount ;
   }
 }

@@ -8,14 +8,10 @@ import java.time.temporal.TemporalAccessor;
 import java.util.List;
 
 import org.ehrbase.fhirbridge.comparators.CustomTemporalAcessorComparator;
-import org.ehrbase.fhirbridge.ehr.converter.specific.bodyweight.BodyWeightCompositionConverter;
 import org.ehrbase.fhirbridge.ehr.converter.specific.ipsbodyweight.IPSBodyWeightCompositionConverter;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.InternationalPatientSummaryOnlyBodyWeightComposition;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightAnyEventPointEvent;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightObservation;
-import org.ehrbase.fhirbridge.ehr.opt.koerpergewichtcomposition.KoerpergewichtComposition;
-import org.ehrbase.fhirbridge.ehr.opt.koerpergewichtcomposition.definition.KoerpergewichtKategorieElement;
-import org.ehrbase.fhirbridge.ehr.opt.koerpergewichtcomposition.definition.KoerpergewichtObservation;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.IPSBodyWeightComposition;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightAnyEventPointEvent;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightObservation;
 import org.ehrbase.fhirbridge.fhir.AbstractMappingTestSetupIT;
 import org.hl7.fhir.r4.model.Observation;
 import org.javers.core.Javers;
@@ -51,7 +47,7 @@ public class IPSBodyWeightIT extends AbstractMappingTestSetupIT{
     public Javers getJavers() {
         return JaversBuilder.javers()
                 .registerValue(TemporalAccessor.class, new CustomTemporalAcessorComparator())
-                .registerValueObject(new ValueObjectDefinition(InternationalPatientSummaryOnlyBodyWeightComposition.class, List.of("location", "feederAudit")))
+                .registerValueObject(new ValueObjectDefinition(IPSBodyWeightComposition.class, List.of("location", "feederAudit")))
                 .registerValueObject(BodyWeightObservation.class)
                 .registerValueObject(BodyWeightAnyEventPointEvent.class)
                 .build();
@@ -69,7 +65,7 @@ public class IPSBodyWeightIT extends AbstractMappingTestSetupIT{
     public void testMapping(String resourcePath, String paragonPath) throws IOException {
         Observation observation = (Observation) super.testFileLoader.loadResource(resourcePath);
         IPSBodyWeightCompositionConverter ipsBodyWeightCompositionConverter = new IPSBodyWeightCompositionConverter();
-        InternationalPatientSummaryOnlyBodyWeightComposition mapped = ipsBodyWeightCompositionConverter.convert(observation);
+        IPSBodyWeightComposition mapped = ipsBodyWeightCompositionConverter.convert(observation);
         Diff diff = compareCompositions(getJavers(), paragonPath, mapped);
         assertEquals(0, diff.getChanges().size());
     }

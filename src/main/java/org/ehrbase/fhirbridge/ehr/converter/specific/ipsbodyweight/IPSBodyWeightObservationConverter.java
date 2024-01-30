@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import org.ehrbase.client.classgenerator.shareddefinition.NullFlavour;
 import org.ehrbase.fhirbridge.ehr.converter.generic.ObservationToObservationConverter;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightAnyEventChoice;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightObservation;
-import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition.BodyWeightAnyEventPointEvent;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightAnyEventChoice;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightObservation;
+import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition.BodyWeightAnyEventPointEvent;
 import org.hl7.fhir.r4.model.Observation;
 
 import java.util.ArrayList;

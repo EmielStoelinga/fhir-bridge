@@ -1,4 +1,4 @@
-package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.internationalpatientsummaryonlybodyweightcomposition.definition;
+package org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.definition;
 
 import com.nedap.archie.rm.archetyped.FeederAudit;
 import com.nedap.archie.rm.datastructures.Cluster;
