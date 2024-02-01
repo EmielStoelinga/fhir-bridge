@@ -23,6 +23,14 @@
       },
       "code_string": "en"
    },
+   "territory" : {
+     "_type" : "CODE_PHRASE",
+     "terminology_id" : {
+       "_type" : "TERMINOLOGY_ID",
+       "value" : "ISO_3166-1"
+     },
+     "code_string" : "NL"
+   },
    "category": {
       "value": "event",
       "defining_code": {
@@ -35,25 +43,25 @@
    },
    "composer": {
       "_type": "PARTY_IDENTIFIED",
-      "external_ref": {
-         "id": {
-            "_type": "HIER_OBJECT_ID",
-            "value": "01828e15-e540-4d67-9258-e68507d89751"
+      "identifiers": [
+         {
+            "_type": "DV_IDENTIFIER",
+            "id": "Practitioner/01828e15-e540-4d67-9258-e68507d89751"
          }
-      }
+      ]
    },
    "context": {
       "start_time": {
          "value": "2024-01-26T00:00:00+00:00"
       },
       "setting": {
-         "value": "primary medical care",
+         "value": "secondary medical care",
          "defining_code": {
             "terminology_id": {
                "_type": "TERMINOLOGY_ID",
                "value": "openehr"
             },
-            "code_string": "228"
+            "code_string": "232"
          }
       }
    },
@@ -140,6 +148,7 @@
                         },
                         "archetype_node_id": "at0003",
                         "time": {
+                           "_type" : "DV_DATE_TIME",
                            "value": "2024-01-26T00:00:00+00:00"
                         },
                         "data": {
@@ -164,15 +173,6 @@
                                  }
                               }
                            ]
-                        },
-                        "state": {
-                           "_type": "ITEM_TREE",
-                           "name": {
-                              "_type": "DV_TEXT",
-                              "value": "state structure"
-                           },
-                           "archetype_node_id": "at0008",
-                           "items": []
                         }
                      }
                   ]

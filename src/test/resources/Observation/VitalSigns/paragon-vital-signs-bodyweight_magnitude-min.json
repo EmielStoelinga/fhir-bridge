@@ -173,15 +173,6 @@
                                  }
                               }
                            ]
-                        },
-                        "state": {
-                           "_type": "ITEM_TREE",
-                           "name": {
-                              "_type": "DV_TEXT",
-                              "value": "state structure"
-                           },
-                           "archetype_node_id": "at0008",
-                           "items": []
                         }
                      }
                   ]
