@@ -23,6 +23,14 @@
       },
       "code_string": "en"
    },
+   "territory" : {
+     "_type" : "CODE_PHRASE",
+     "terminology_id" : {
+       "_type" : "TERMINOLOGY_ID",
+       "value" : "ISO_3166-1"
+     },
+     "code_string" : "NL"
+   },
    "category": {
       "value": "event",
       "defining_code": {
@@ -53,7 +61,7 @@
                "_type": "TERMINOLOGY_ID",
                "value": "openehr"
             },
-            "code_string": "228"
+            "code_string": "232"
          }
       }
    },

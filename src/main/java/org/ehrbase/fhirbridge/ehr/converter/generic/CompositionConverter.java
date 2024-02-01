@@ -42,7 +42,7 @@ public abstract class CompositionConverter<R extends Resource, C extends Composi
         composition.setLanguage(resolveLanguageOrDefault(resource));
         composition.setLocation("test");
         composition.setSettingDefiningCode(Setting.SECONDARY_MEDICAL_CARE);
-        composition.setTerritory(Territory.DE);
+        composition.setTerritory(Territory.NL);
         composition.setComposer(convertComposer(resource));
         convertHealthCareFacility(resource).ifPresent(composition::setHealthCareFacility);
         return composition;
