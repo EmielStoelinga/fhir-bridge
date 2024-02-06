@@ -1,8 +1,10 @@
 package org.ehrbase.fhirbridge.camel.processor;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -19,6 +21,7 @@ import org.ehrbase.fhirbridge.ehr.opt.ipsbodyweight.IPSBodyWeightComposition;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.Observation;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Quantity;
@@ -169,17 +172,28 @@ public class FindObservationOpenEHRProcessor implements FhirRequestProcessor {
 
     private Observation convertCompositionToObservation(IPSBodyWeightComposition composition, String subjectId) {
         Observation observation = new Observation();
-        // set newly created guid
+
+        // TODO: how is this profile validated?
+        observation.setMeta(new Meta().addProfile("http://hl7.org/fhir/StructureDefinition/vitalsigns"));
+
+        // TODO: which ID should this be?
         observation.setId(composition.getVersionUid().toString());
 
+        // TODO: where should this status come from? Not present in the composition thus far
         observation.setStatus(new Observation.ObservationStatusEnumFactory().fromCode("final"));
 
         Coding code = new Coding();
         code.setCode("vital-signs");
         code.setSystem("http://hl7.org/fhir/StructureDefinition/vitalsigns");
         observation.setCategory(Collections.singletonList(new CodeableConcept().setCoding(Collections.singletonList(code))));
-        observation.setCode(new CodeableConcept().setText("29463-7"));
+
+        // TODO: where should this code come from? Not present in the composition thus far.
+        // We know it should be this code, because this belong to body weight.
+        observation.setCode(new CodeableConcept().setCoding(Collections.singletonList(new Coding().setCode("29463-7").setSystem("http://loinc.org"))));
+
         observation.setSubject(new Reference().setReference("Patient/" + subjectId));
+
+        // TODO: get the effective date from the composition
         observation.setEffective(null);
         observation.setValue(new Quantity().setValue(composition.getBodyWeight().getAnyEvent().get(0).getWeightMagnitude()).setUnit("kg"));
 
