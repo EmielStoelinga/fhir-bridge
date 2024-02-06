@@ -110,8 +110,6 @@ public class FindObservationOpenEHRProcessor implements FhirRequestProcessor {
                 observationParams.put(paramName, paramValues);
             } else if (paramName.startsWith("subject.identifier")) {
                 observationParams.put(paramName, paramValues);
-            } else if (paramName.startsWith("ehr_id")) {
-                observationParams.put(paramName, paramValues);
             } else {
                 LOG.warn("Parameter {} is not supported", paramName);
             }
@@ -191,14 +189,11 @@ public class FindObservationOpenEHRProcessor implements FhirRequestProcessor {
     private Set<IPSBodyWeightComposition> handleQueryForIPSVitalSigns(Map<String, String[]> observationParams) {
         Set<IPSBodyWeightComposition> compositions = new HashSet<>();
 
-        String aql = "SELECT c from EHR e";
-
-        if (observationParams.containsKey("ehr_id")) {
-            aql += " [ehr_id/value='" + observationParams.get("ehr_id")[0] + "']";
-        }
-
-        aql += " CONTAINS COMPOSITION c";
-
+        // start building the AQL query and fill in the ehrId
+        String ehrId = getEhrId(observationParams.get("subject.identifier")[0]);
+        String aql = String.format("SELECT c from EHR e [ehr_id/value='%s'] CONTAINS COMPOSITION c", ehrId);
+        
+        // add the template to the query
         String where = " WHERE";
 
         if (observationParams.containsKey("_profile")) {
@@ -232,6 +227,20 @@ public class FindObservationOpenEHRProcessor implements FhirRequestProcessor {
         }
 
         return compositions;
+    }
+
+    private String getEhrId(String subjectId) {
+        String aql = String.format("select e/ehr_id/value as ehrId from EHR e WHERE e/ehr_status/subject/external_ref/id/value='%s'", subjectId);
+        Query<Record1<String>> query = Query.buildNativeQuery(aql, String.class);
+
+        List<Record1<String>> results = new ArrayList<>();
+        try {
+            results = this.openEhrClient.aqlEndpoint().execute(query);
+        } catch (Exception e) {
+            throw new InternalErrorException("There was a problem retrieving the ehrId", e);
+        }
+
+        return results.get(0).value1();
     }
 
     private boolean isSearchOperation(Exchange exchange) {

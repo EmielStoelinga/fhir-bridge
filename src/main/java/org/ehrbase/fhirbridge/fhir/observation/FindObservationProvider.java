@@ -57,7 +57,7 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings({"unused", "java:S107", "DuplicatedCode"})
 public class FindObservationProvider extends AbstractPlainProvider {
 
-    @Search(type = Observation.class, allowUnknownParams = true)
+    @Search(type = Observation.class)
     public IBundleProvider searchObservation(@OptionalParam(name = IAnyResource.SP_RES_ID) TokenAndListParam id,
                                              @OptionalParam(name = IAnyResource.SP_RES_LANGUAGE) StringAndListParam language,
                                              @OptionalParam(name = Constants.PARAM_LASTUPDATED) DateRangeParam lastUpdated,
