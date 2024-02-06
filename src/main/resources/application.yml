@@ -15,6 +15,9 @@ fhir-bridge:
       user:
         name: myuser
         password: myPassword432
+  # Search Properties
+  search:
+    search-mode: openehr #database
   security:
     type: none
 
